@@ -88,30 +88,30 @@ body
  ////////////////////////////////////////////*/
 
 #navigator
-{	
+{
 	height: 40px;
 	background: rgb(75,46,131);
 
 	-moz-box-shadow: 5px 5px 5px #777777;
 	-webkit-box-shadow: 5px 5px 5px #777777;
 	box-shadow: 5px 5px 5px #777777;
-	
+
 	text-align: center;
 }
 
 #navigator ul
 {
 	width: 780px;
-	
+
 	margin: auto auto;
 	padding: 0px 0px;
-	
+
 	list-style: none;
 }
 
 #navigator ul li
 {
-	float: left;	
+	float: left;
 	width: 130px;
 
 	padding-top: 10px;
@@ -125,7 +125,7 @@ body
 
 #navigator  a:hover
 {
-	color: rgb(255, 255, 255);  
+	color: rgb(255, 255, 255);
 	font-weight: bold;
 }
 
