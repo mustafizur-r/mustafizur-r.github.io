@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f98394c7-6429-4586-a4c5-0e4b7ef1fe8b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/files/Mustafizur_Resume.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/fanfarelogo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/imd_lab.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/kyoto_uni.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/m.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/mustafizur.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/naist_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/realEzy_Logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/research-img/1TeaserImage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/talentpro-global-logo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/resume.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="f98394c7-6429-4586-a4c5-0e4b7ef1fe8b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728558813706</updated>
       <workItem from="1728558814847" duration="2312000" />
-      <workItem from="1728561762599" duration="12953000" />
+      <workItem from="1728561762599" duration="13203000" />
     </task>
     <servers />
   </component>
