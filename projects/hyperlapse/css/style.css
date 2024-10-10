@@ -1,0 +1,201 @@
+
+body 
+{	
+  	background: white;
+	
+	margin-top: 80px;
+	
+	font-family: Helvetica, Arial;
+	font-size: 17px;
+	font-family: Calibri;
+	line-height: 1.5em;
+}
+
+.wrapper
+{
+	position: relative;
+	text-align: left;
+	width: 1024px;
+	margin: 0px auto 0px auto;
+
+}
+
+/*/////////////////////////////////////////////
+ // Utilities
+ ////////////////////////////////////////////*/
+
+
+a.no_underline
+ {
+	text-decoration: none;
+	color: rgb(0, 0, 255);
+}
+
+.link_block > a
+{
+	text-decoration: none;
+	color: rgb(0, 0, 255);
+}
+
+.link_block > a:hover
+{
+	text-decoration: underline;
+	color: rgb(0, 0, 255);
+}
+
+.sample_video
+{
+	text-align: center;
+	margin: 2em 0em;
+}
+
+.sample_video > .frame
+{
+}
+
+.sample_video > .description
+{
+	font-family: Georgia;
+	font-weight: italic;
+}
+
+.image
+{
+	text-align: center;
+	margin: 2em 0em;
+}
+
+.image > .center_description
+{
+	font-size: 16px;
+	text-align: center;
+}
+
+.image > .left_description
+{
+	font-size: 16px;
+	text-align: left;
+	
+	padding-left: 4em;
+    text-indent: -3.75em;
+}
+
+.center_table
+{
+	text-align: center;
+}
+
+.center_table > .center_description
+{
+	font-size: 16px;
+	text-align: center;
+}
+
+.formula
+{
+	text-align: center;
+}
+
+.button
+{
+	color: rgb(63, 72, 204);
+}
+
+
+/*/////////////////////////////////////////////
+ // headline
+ ////////////////////////////////////////////*/
+
+.headline
+{
+	text-align: center;
+}
+
+#title
+{
+  font-family: Elephant;
+  font-size: 50px;
+  font-weight: normal;
+  line-height: 80px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#subtitle 
+{
+  font-family: Rockwell;
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  color: rgb(0, 162, 232);
+}
+
+#author
+{
+  margin: 0px;
+  font-weight: normal;
+  font-family: Georgia;
+  font-size: 25px;
+  color: rgb(128, 128, 128);
+  margin-bottom: 50px;
+}
+
+
+/*/////////////////////////////////////////////
+ // section
+ ////////////////////////////////////////////*/
+ 
+.section
+{
+	width: 860px;
+	margin: auto auto;
+	text-align: justify;
+}
+ 
+ .sc_title:before 
+ {
+  content: url('../images/clock-icon.png'); /* with class ModalCarrot ??*/
+  position: relative;
+  left: -15px;
+  top: 20px;
+}
+ .sc_title
+ {
+	font-family: Georgia;
+	font-size: 36px;
+	font-weight: bold;
+	margin-top: 34px;
+	margin-bottom: 16px;
+ }
+ 
+.sc_body
+ {
+	 font-size: 20px;
+	 margin-left: 70px;
+ }
+ 
+ .link_block
+{
+	padding-left: 8px;
+	text-align: left;
+}
+
+
+/*/////////////////////////////////////////////
+ // Reference
+ ////////////////////////////////////////////*/
+
+#reference
+{
+} 
+
+#reference > .sc_body > ul
+{
+   list-style: none;
+   margin-left: 0;
+   padding-left: 2em;
+   text-indent: -1.75em;
+}
+
+
+ 

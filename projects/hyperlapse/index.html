@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>CSE 557 Final Project: Hyperlapse Video Creation</title>
+	<link href="./css/style.css" type="text/css" rel="stylesheet">
+	
+	<!--  for adding mathematical formulas (http://latex.codecogs.com/eqneditor/integration/htmlequations.php) -->
+	<script type="text/javascript" src="https://latex.codecogs.com/latexit.js"></script>
+	<script type="text/javascript">
+	LatexIT.add('p',true);
+	</script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+	
+	<div class = "headline">
+		<div id="title">Hyperlapse Video Creation</div>
+		<div id="subtitle">CSE 557 Final Project (2015 Autumn)</div>
+		<div id="author">Chung-Yi Weng / Xin Yang</div>
+	</div>
+	
+	<div class = "section">
+		<div class = "sc_title">Introduction</div>
+		<div class = "sc_body">
+			<p>Today, TBs of videos are been uploaded to websites such as YouTube and Facebook, while users have very limited time to watch them. One way to solve this problem is to generate "speed up" videos, hence users can get a sense of the video in short time. This is called "timelapse" video. The idea is to pick up 1 frame in a long time interval, and use these frames to generate the output video. An impressive result could be obtained if a stationary camera is used when capturing the video. </p>
+			<p>Here is a good timelapse video which captures the beauty of Iceland.</p>
+				<div class = "sample_video">
+					<div class = "frame"><iframe src="https://player.vimeo.com/video/49643332?color=cc3333&byline=0&portrait=0" width="750" height="421" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>
+				</div>
+			<p>When a video is shot with a stationary camera, naive frame skipping is quite effective; however, if there are camera motions, the speed-up process would cause heavy jumbles. Unfortunately, camera motions are very common in most videos dirtributed in the world, which are usually taken with hand-held devices like smartphones. </p>
+			<p>“Hyperlapse” videos aim to solve the problem by smoothing the motion of the camera. It performs camera motion smoothing in addition to the speed-up process. Our goal is to help people create an effective and robust hyperlapse video. </p>
+		</div>
+	</div>
+	
+	<div class = "section">
+		<div class = "sc_title">Goal</div>
+		<div class = "sc_body">
+		Given a video (usually taken with hand-held devices) and a specified target speed, create a hyperlapse video which “speed up” the video with the target speed. The result should be robust to camera motions and meet the target speed.
+		</div>
+	</div>
+	
+	<div class = "section">
+		<div class = "sc_title">Related Work</div>
+		<div class = "sc_body">
+			<p>Hardware-based method and software-based method are the two main approaches to create hyperlapse videos. We will briefly describe these methods as follows:</p>
+			<p>
+				<ul>
+					<li><b>Hardware-based Method:</b> Hardware-based method utilize onboard gyros to detect camera motions, and stabilize the video by offsetting detected motions. <a class="no_underline" href="https://instagram-engineering.tumblr.com/post/95922900787/hyperlapse">Instagram Hyperlapse app[1]</a> use this approach and get quite successful result. But, the major problem of the approach is it only works well in the devices equipped with specified hardware. Also, limited to the hardware constraint, the method cannot by applied to the existing videos.</li><br>
+					<li><b>Software-based Method:</b> Software-based method usually detects corresponding features between frames, and uses them to recover frame-to-frame camera motions. These motions would be further stablized in the resulting hyperapse video. The most sophisticated and successful work is that of <a class="no_underline" href="./papers/Kopf_2014.pdf">Kopf et al.[2]</a>, which applies structure-from-motion (SfM) to reconstruct 3D geometry of  video, and re-render the scene based on reconstructed 3D information. While the method works well, it is extremely computational inefficient and is far away from real-time computation</li>
+					<br>In 2015, <a class="no_underline" href="./papers/Joshi_2015.pdf">Joshi et al.[3]</a> present an algorithm to solve the problem effectively. The idea is to optimize camera motion smoothing and speed-up jointly. By allowing small violations of the target speedup rate, the algorithm tends to select frames which lead to a smoother output. It can run in nearly real-time and handle significantly camera motion than existing real-time methods. Therefore, the algorithm is what we will implement in the final project.
+
+				</ul>
+			</p>
+		</div>
+	</div>
+	
+	<div class = "section">
+		<div class = "sc_title">Method</div>
+		<div class = "sc_body">
+			<p>The key idea of Joshi’s work is to pick a set of frames that are close to the target speed but also can be aligned well and thus stabilized more easily in the final hyperlapse video. In order to meet the requirement, an appropriate cost metric and optimization method need to be designed carefully. As illustrated in the following figure, the Joshi’s method consists of three main stages:</p>
+			<div class = "image">
+				<img src="./images/flowchart.png" ,="" class="align-center" alt="flow chart" width="800" height="269">
+				<div class = "center_description">Figure 1: flowchart of proposed framework</div>
+			</div>
+			<ul>
+				<li>
+					<b>Frame-matching</b>: In the stage, we want to determine if the frames can be aligned well and have significant overlap regions. The criteria is important to select “good” frames to be stabilized in the later stage.
+					<br>In order to get the information, we must determine homography between two frames, and estimate overlap regions based on determined homography. We use <a class="no_underline" href="./papers/Harris_1988.pdf">Harris corner detector[4]</a> to detect key points in each frame, and extract <a class="no_underline" href="./papers/Calonder_2010.pdf">BRIEF descriptor[5]</a> for each key point. <a class="no_underline" href="./papers/Fischler_1981.pdf">RANSAC[6]</a> is performed to find correct key-point matching pairs between frames. Finally, the <a class="no_underline" href="./papers/David_2007.pdf">homography[7]</a> is determined based on these matching pairs. Figure 2 is an example of detection result of Harris corner detector
+						<div class = "image">
+							<img src="./images/harris-corner.jpg" ,="" class="align-center" alt="Harris corner detection" width="640" height="360">
+							<div class = "center_description">Figure 2: an example of Harris corner detection</div>
+						</div>
+					Figure 3 shows the correct matched pairs after RANSAC process and warped frame based on estimated homography.
+						<div class = "image">
+							<img src="./images/ransac-homography.jpg" ,="" class="align-center" alt="Homography" width="800" height="450">
+							<div class = "left_description">
+								Figure 3: (Top Row) <i>Left</i>: frame matched with right frame; <i>Right</i>: warpped frame based on estimated homography
+								<br>(Bottom Row) correct mathced key-point pairs after RANSAC process
+							</div>
+						</div>
+					After determining homographies, two cost functions are defined in order to get good frame-to-frame transition. The first term is an <b><i>alignment cost</i></b>:
+					<p class="formula">\[C_{r}(i,j) = \frac{1}{n} \displaystyle\sum_{p=1}^{n} \|(x_{p}, y_{p})_{i}^{T} - T(i,j)(x_{p}, y_{p})_{i}^{T}\|_{2}\]</p>
+					<p>where $(x_{p}, y_{p)}$ are corresponding key points selected by the RANSAC process, and $T(i,j)$ is the estimated  homography. The cost funtion penelizes the frames which cannot be aligned well or have significant transformations. </p>
+					<p>The secord term is an <b><i>overlap cost</i></b>, measure the size of overlap region between frames:</p>
+					<p class="formula">\[ C_{o}(i,j) = \| (x_{0}, y_{0})^{T} - T(i,j)(x_{0}, y_{0})^{T} \|_{2} \]</p>
+					<p>where $(x_{0}, y_{0})$ is the center of the image. This is equivalent to the magnitude of translation of the center of the image between frames</p>
+					<p>The two costs are combined into a <b><i>motion cost</i></b>:</p>
+					<p class="formula">
+						\[ C_{m}(i,j) = \begin{cases} C_{o}(i,j) &\quad C_{r}(i,j) < \tau_{c} \\ \gamma &\quad C_{r}(i,j) \geq 	\tau_{c}    \\ \end{cases} \]
+					</p>
+					<p>where $\gamma$ is the maximal cost, and $\tau_{c}$ is pre-defined threshold to determine if the homography is reliable or not.
+					<p>Figure 4 shows an example of corresponding motion cost matrix when analyzing frames.</p>
+					<div class = "image">
+							<img src="./images/motion_cost.png" ,="" class="align-center" alt="Motion Cost Matrix" width="800" height="320">
+							<div class = "left_description">
+								Figure 4: <i>(Left)</i> current analyzed frame; <i>(Right)</i> motion cost matrix: the pixels which have brighter green color correspond to larger motion cost values
+							</div>
+					</div>
+				</li>
+				<li>
+					<b>Frame Selection</b>: Before doing frame selection, we need to define cost functions to make hyperlapse video achieve a desired speed-up. Two cost functions are defined.
+					<p>The first one is a <b><i>speed-up cost</i></b>:</p>
+					<p class="formula">\[ C_{s}(i,j,\nu)=min(\| (j-i) - \nu \|_{2}^{2}, \tau_{s}) \]</p>
+					<p>where, $\tau_{s}$ is pre-defined maximal cost. The term measures the difference between the actual jump between frames $i$ and $j$ and the target speed-up rate $\nu$.</p>
+					<p>The second one is an <b><i>acceleration cost</i></b>:</p>
+					<p class="formula">\[ C_{a}(h,i,j) = min(\| (j-i) - (i-h) \|_{2}^{2}, \tau_{a} ) \]</p>
+					<p>where, $\tau_{a}$ is pre-defined maximal cost. The term reduces perceptible visual jump coming from sudden acceleration change.</p>
+					<p>Finally, the overall cost function used to select optimal frames is the comination of <i>motion cost</i>, <i>speed-up cost</i>, and <i>acceleration cost</i>:</p>
+					<p class="formula">
+						\[ C(h,i,j,\nu) =  C_{m}(i,j) + \lambda_{s}C_{s}(i,j,\nu) + \lambda_{a}C_{a}(h,i,j) \]
+					</p>
+					<p>where $\lambda_{s}$ and $\lambda_{a}$ are the adjusted parameter determined by the user who prefers smoother camera motions or more precise speed-up rate.</p>
+					<p>After completing the computation of cost functions, we can determine the optimal frames by dynamic programming (DP) and dynamic-time-warping (DTW) algortithms. The optimal path is determined by finding the minimal accumulated cost and then tracing back to get whole output frames. The more details, including pseudo codes, could be found in  <a class="no_underline" href="./papers/Joshi_2015.pdf">Joshi's paper</a>. </p>
+				</li>
+				<li>
+					<b>Path smoothing and rendering</b>: Several methods could be used in stabilizing the selected frames. One of good approaches is proposed by <a class="no_underline" href="./papers/Liu_2013.pdf">Liu et al.[8]</a> Due to the limited time constraint, we choose to use <a class="no_underline" href="https://support.google.com/youtube/answer/1388383?hl=en">YouTube video stabilizer[9]</a> to smooth the rendered path.
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class = "section">
+		<div class = "sc_title">Implementation</div>
+		<div class = "sc_body">
+			<p>We use C++ and <a class="no_underline" href="https://opencv.org/">OpenCV[10]</a> to implement the algorithm, and use MFC (Micorsoft Foundation Class) to build our testbed. </p>
+			<p>Besides, our implementation supports <b>preview mode</b>, where the user can preview the hyperlapse result and use a slider to interactively change the speed-up rate. In order to achieve the effect, we offer discrete set of speed-ups of 1, 4, 8, 12, 16, 20, and compute the all optimal paths in these settings. When the user change the target speed-up rate, we will adjust the output frame accordingly by finding the most appropriate frame in the target optimal path. The more detail description of our testbed could be found in <a class="no_underline" href="index.html#Supplementary">Supplementary</a> section.</p>
+		</div>
+	</div>
+	
+	<div class = "section" id="experiment">
+		<div class = "sc_title">Experiments and Results</div>
+		<div class = "sc_body">
+			<p>We use several videos to evaluate our algorithm. Table 1 is a brief report of analysis speed. We also implement speed optimization method proposed in the paper. The idea is to approximate overlap cost $C_{0}(i,j)$ by chaining the overlap costs between frames:</p>
+			<p class="formula">\[ C_{0}(i,j) = C_{0}(i,i+1) + C_{0}(i+1,i+2) + ... + C_{0}(j-1,j) \]</p>
+			<p>The formula implys only costs between neighbor frames are necessary to be computed. It could reduce large amount of computation.</p>
+			<p>But when the method of chained cost is applied, the hyperlapse would become more drifting, especially when the window size is large. So a modification is that we only use chained costs when the current scene in the video is near still. The heuristic trick offers a good trade-off to maintain hyperlapse quality and reduce computation simultaneously.</p>
+			<p>We run our test videos with different optimization method (<b>no optimization</b>, <b>hybrid</b>, and <b>fully chained cost</b>). The detail report is shown in Table 1. But it is strange that our analysis performance is not as fast as what is claimed in the paper. We guess the reason is the implementation of Harris Corner detection in OpenCV is not optimized. If we have more time, we should investigate the problem.</p>
+			<p>The spec of our test machine is: </p>
+			<ul>
+				<li>CPU: Intel i5-5300U</li>
+				<li>RAM: 8GB</li>
+				<li>OS: Windows 7</li>
+			</ul>
+			<div class = "center_table">
+				<table border = "1" class = "center_table" cellpadding = "5" cellspacing = "10">
+					<thead>
+						<tr>
+							<th>Video</th>
+							<th>Resolution</th>
+							<th>No Optimization (FPS)</th>
+							<th>Hybrid (FPS)</th>
+							<th>Fully Chained (FPS)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>bike - 1</td>
+							<td>1280X960</td>
+							<td>3.61</td>
+							<td>4.92</td>
+							<td>13.16</td>
+						</tr>
+						<tr>
+							<td>bike - 2</td>
+							<td>1280X960</td>
+							<td>3.43</td>
+							<td>4.32</td>
+							<td>13.21</td>
+						</tr>
+						<tr>
+							<td>running</td>
+							<td>1280X960</td>
+							<td>3.16</td>
+							<td>3.68</td>
+							<td>12.78</td>
+						</tr>
+						<tr>
+							<td>climbing</td>
+							<td>1280X960</td>
+							<td>3.57</td>
+							<td>4.36</td>
+							<td>13.05</td>
+						</tr>
+						<tr>
+							<td>building</td>
+							<td>1920X1080</td>
+							<td>2.81</td>
+							<td>3.77</td>
+							<td>8.97</td>
+						</tr>
+						<tr>
+							<td>walking</td>
+							<td>1920X1080</td>
+							<td>2.79</td>
+							<td>3.75</td>
+							<td>9.02</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td><b>Average</b></td>
+							<td></td>
+							<td><b>3.23</b></td>
+							<td><b>4.13</b></td>
+							<td><b>11.70</b></td>
+						</tr>
+					</tfoot>
+				</table>
+				<div class = "center_description">Table 1: performace of proposed algorithm</div>
+			</div>
+			<p>Next, we will show some our hyperlapse videos created by the implemented algorithm. We compare our result with naïve sampling. In each video, the result of naïve sampling is put on left side, and our result is put on right side. Here is an example:</p>
+			<div class = "sample_video">
+				<video width="640" height="480" controls>
+					<source src="videos/bike07_compare.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<p>You can observe that our result is smoother than the result of naïve sampling. The rapid motion change is more common when naive sampling is used.</p>
+			<p>Here is another example: </p>
+			<div class = "sample_video">
+				<video width="640" height="480" controls>
+					<source src="videos/bike08_compare.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<p>In the example, we found the difference between optimal frame sampling and naïve sampling is not so significant although the result of optimal frame sampling is still smoother. We think the reason is the camera motions in the video are larger and longer than other videos. Therefore, the default windows size is not big enough to let the algorithm skip all frames with large motion. If we use larger window size, the result should be improved.</p>
+			<p>Here is the last example:</p>
+			<div class = "sample_video">
+				<video width="640" height="480" controls>
+					<source src="videos/walk_compare.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<p>Naive sampling also performs well in the example because the camera motions in the video are not very large. Therefore, the motions could be compensated when a video stabilizer is applied. But compared with optimal frame sampling, you can still find more dramatic camera motion changes in the video of naïve sampling.</p>
+		</div>
+	</div>
+	
+	<div class = "section">
+		<div class = "sc_title">Limitations</div>
+		<div class = "sc_body">
+			<p>Our method might fail in the following situation:</p>
+			<ul>
+				<li><b>Blurred Video Frames</b>: When taking videos using non-professional hand-held devices like smart phones, some frames in the video would have serious blur. It resulted from slower shutter speed and larger and rapid camera motions. Our homography estimation method would easy to fail in such cases because we cannot find enough key points (features) and extract qualified feature descriptors. Here is an example:
+					<div class = "image">
+						<img src="./images/blur-frame.jpg" ,="" class="align-center" alt="Blur Frames" width="800" height="450">
+						<div class = "left_description">
+							Figure 8: (Top Row) Warpped frame based on estimated homography; (Bottom Row) few matching pairs due to the blur effect in the frame
+						</div>
+					</div>
+				</li>
+				<li><b>Less-structure Scenes</b>: Some scenes captured in the video have large flat region and lack high-frequency textures. Our homography estimation is easy to fail in the case. The reason is the same with that of blurred video frames – fewer key points and unqualified feature descriptors. Here is an example:
+					<div class = "image">
+						<img src="./images/less-structure.jpg" ,="" class="align-center" alt="Less-structure Scene" width="800" height="450">
+						<div class = "left_description">
+							Figure 9: (Top Row) Warpped frame based on estimated homography; (Bottom Row) few matching pairs due to lack of high-frequency textures
+						</div>
+					</div>
+				</li>
+				<li><b>Less overlap regions between near-by frames</b>: Because the key idea of the method is to select the best frame in a window which have large overlap region with respect to the current frame, it would fail if there is not a lot of visual overlap between near-by frames. In such situation, It can’t find a “good enough” frame to help video stabilization. Here is an example:
+						<div class = "sample_video">
+							<video width="640" height="480" controls>
+								<source src="videos/climbing08_bad.mp4" type="video/mp4">
+								Your browser does not support the video tag.
+							</video>
+						</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class = "section">
+		<div class = "sc_title">Future Work</div>
+		<div class = "sc_body">
+			<p>Given a limited period of time, we have implemented most features of the algorithm. But if we can get more time, we will consider more possibilities in the following directions:</p>
+			<ul>
+				<li><b>Video Stabilization</b>: Due to limited time constraint, we didn’t implement video stabilizer by ourselves. We use Youtube video stabilizer to stabilize our videos. However, if a robust video stabilizer can be integrated into our system, it is more convenient to get final resulting video. Some methods, like the work of <a class="no_underline" href="./papers/Liu_2013.pdf">Liu et al.[8]</a>, have proved their effectiveness. We could implement one of them.</li>
+				<li><b>Acceleration</b>: It is strange that our implementation is not as fast as what is claimed in the paper. We guess the reason is the implementation of Harris Corner detection in OpenCV is not optimized. If we have more time, we can investigate the problem carefully and accelerate the performance of our system to achieve the claimed speed in the paper.</li>
+				<li><b>Robust Homography Estimation</b>: As we mentioned in Limitation session, our homography estimation is not robust in some situations. The problem should be further investigated to see how to resolve it. (- Some tricks of image preprocessing might work)</li>
+				<li><b>Encode User’s Preference</b>: The algorithm offers a good framework to encode preference to "guide" the system how to select desired frames. It can not only be used in frame selection in hyperlapse video creation, but also be used in other scenarios. We could ponder the possibility to intelligently encode other user’s preference to create more appealing videos for users.</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class = "section" id="Supplementary">
+		<div class = "sc_title">Supplementary</div>
+		<div class = "sc_body">
+			<p> We have implemented various kinds of features in our testbed to help us develop the algorithm. I use the following figure to explain what we have implemented.</p>
+			<div class = "image">
+				<img src="./images/testbed.png" ,="" class="align-center" alt="Harris corner detection" width="591" height="640">
+				<div class = "center_description">Figure 10: our testbed</div>
+			</div>
+			<p>To be more clear, we splitted all funtionalities of the testbed into five sections. The similiar functionalities, which belongs to the same section, are grouped together in the control panel.</p>
+			<ul>
+				<!-- create section -->
+				<li><b>Create Section</b>:
+					<ul>
+						<li>You can <b class = "button">Choose</b> the input video, <b class = "button">Open</b> the video, <b class = "button">Run Hyperlapse</b> analysis, <b class = "button">Pause</b> the process, or <b class = "button">Close</b> the video</li>
+					</ul>
+				</li>
+				<!-- preview section -->
+				<li><b>Preview Section</b>:
+					<ul>
+						<li> When the hyperlapse analysis is completed, you can preview the result here before outputting the result.</li>
+						<li> When previewing the video, you can use the slider to dynamically adjust the target speed of hyperlapse, and the previewed frames would be adjusted accordingly. </li>
+						<li> Three preview modes are supported
+							<ul>
+								<li><b class = "button">Naive</b></li>
+								<li><b class = "button">Optimal Frame</b></li>
+								<li><b class = "button">Compare</b> (side by side compare naïve and optimal frame)</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<!-- output section -->
+				<li><b>Output Section</b>:
+					<ul>
+						<li> You can output the hyperlapse result as an AVI file.</li>
+					</ul>
+				</li>
+				<!-- debug setting -->
+				<li><b>Debug Setting</b>:
+					<ul>
+						<li>By checking corresponding check boxes, the following debug information would be drawn on the frame during the analysis
+							<ul>
+								<li><b class = "button">Key Points</b></li>
+								<li><b class = "button">Matched Key-point Pairs</b></li>
+								<li><b class = "button">Correct Matched Key-point Pairs</b> after RANSAC (inliers)</li>
+								<li><b class = "button">Homography</b> (we warp the image to test whether the homography estimation is reasonable)</li>
+								<li><b class = "button">Fps</b></li>
+								<li><b class = "button">Camera Motion Cost</b></li>
+							</ul>
+						</li>
+						<li>You can select optimization method here. Three optimization settings are supported:
+							<ul>
+								<li><b class = "button">No Optimization</b></li>
+								<li><b class = "button">Hybrid</b></li>
+								<li><b class = "button">Fully Chained</b></li>
+							</ul>
+						</li>
+						<li>You can determine which key point detection method would be used in the analysis. Two detection methods are supported:
+							<ul>
+								<li><b class = "button">Harris Corner</b></li>
+								<li><b class = "button">Fast</b></li>
+							</ul>
+						</li>
+						<li>You can use the slider to control the following parameters when selecting frames
+							<ul>
+								<li><b class = "button"><img src="https://latex.codecogs.com/svg.latex?\lambda_{s}" border="0"/></b></li>
+								<li><b class = "button"><img src="https://latex.codecogs.com/svg.latex?\lambda_{a}" border="0"/></b></li>
+							</ul>
+						</li>
+						<li>You could <b class = "button">Display Motion Cost Matrix</b> simultaneously when analyzing the video</li>
+						<li>By checking the check box of <b class = "button">“Auto Save Cost Matrix”</b>, the intermediate frame analysis result would be stored automatically during the analysis. Then, if you click <b class = "button">“Load Cost Matrix”</b>, all intermediate result would be loaded from previous saved data.</li>
+					</ul>
+				</li>
+				<!-- progress -->
+				<li><b>Progress</b>:
+					<ul>
+						<li>Display the progress of analysis/preview/video writing </li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class = "section" id = "reference">
+		<div class = "sc_title">Reference</div>
+		<div class = "sc_body">
+			<ul>
+				<li id = "ref_1"> [1] KARPENKO, A., 2014. The technology behind hyperlapse from instagram. <span class="link_block"><a href="https://instagram-engineering.tumblr.com/post/95922900787/hyperlapse">[Link]</a></span> </li>
+				<li id = "ref_2"> [2] KOPF, J., COHEN, M. F., AND SZELISKI, R. 2014. First-person hyper-lapse videos. ACM Trans. Graph. 33, 4 (July), 78:1-78:10. </li>
+				<li id = "ref_3"> [3] JOSHI, N., KIENZLE, W., TOELLE, M., Uyttendaele, M., AND COHEN, M. F. 2015. "Real-time hyperlapse creation via optimal frame selection." ACM Trans. Graph. 34, 9 (Aug) </li>
+				<li id = "ref_4"> [4] HARRIS, CHRIS, and MIKE STEPHENS. "A combined corner and edge detector." Alvey vision conference. Vol. 15. 1988.</li>
+				<li id = "ref_5"> [5] CALONDER, MICHAEL, et al. "Brief: Binary robust independent elementary features." Computer Vision–ECCV 2010 (2010): 778-792.</li>
+				<li id = "ref_6"> [6] FISCHLER, MARTIN A., and ROBERT C. BOLLES. "Random sample consensus: a paradigm for model fitting with applications to image analysis and automated cartography." Communications of the ACM 24.6 (1981): 381-395. </li>
+				<li id = "ref_7"> [7] SERGIE BELONGIE and DAVID KRIEGMAN (2007) Explanation of Homography Estimation from Department of Computer Science and Engineering, University of California, San Diego. <span class="link_block"><a href="papers/David_2007.pdf">[Link]</a></span></li>
+				<li id = "ref_8"> [8] LIU, SHUAICHENG, et al. "Bundled camera paths for video stabilization." ACM Transactions on Graphics (TOG) 32.4 (2013): 78.</li>
+				<li id = "ref_9"> [9] YouTube video stablizer <span class="link_block"><a href="https://support.google.com/youtube/answer/1388383?hl=en">[Link]</a></span> </li>
+				<li id = "ref_10"> [10] Open Source Computer Vision (OpenCV) Library <span class="link_block"><a href="https://opencv.org/">[Link]</a></span> </li>
+			</ul>
+		</div>
+	</div>
+
+</div>
+</body>
+
+</html>
