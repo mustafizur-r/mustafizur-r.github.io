@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f98394c7-6429-4586-a4c5-0e4b7ef1fe8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ja/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jp-index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
@@ -28,7 +30,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/mdmustafizur-r/Code/MyPortfolio/mustafizur-r.github.io/image/research-img",
+    "last_opened_file_path": "/Users/mdmustafizur-r/Code/MyPortfolio/mustafizur-r.github.io/ja",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -39,10 +41,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ja" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/image/research-img" />
       <recent name="$PROJECT_DIR$/image/project-img" />
       <recent name="$PROJECT_DIR$/image" />
-      <recent name="$PROJECT_DIR$/files" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -61,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1728558813706</updated>
       <workItem from="1728558814847" duration="2312000" />
-      <workItem from="1728561762599" duration="29450000" />
+      <workItem from="1728561762599" duration="32220000" />
     </task>
     <servers />
   </component>
