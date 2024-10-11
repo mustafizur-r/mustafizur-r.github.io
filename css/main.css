@@ -372,53 +372,57 @@ body
  
 
 /*/////////////////////////////////////////////
- // patent descriptor
+ // award descriptor
  ////////////////////////////////////////////*/
- 
-.patent_item > table
- {
+.award_item > table {
 	width: 768px;
 	padding-left: 16px;
-	
 	border-collapse: collapse;
-	border-bottom: 2px solid rgb(0,0,0);
-	
+	border-bottom: 2px solid rgb(0, 0, 0);
 	margin-bottom: 32px;
- }
- 
- .patent_item > table > thead
- {
-	border-bottom: 2px solid rgb(0,0,0);
- }
- 
- .patent_item > table > tbody > tr > td
- {
+}
+
+.award_item > table > thead {
+	border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.award_item > table > tbody > tr > td {
 	padding-top: 8px;
 	padding-bottom: 8px;
-	border-top: 1px dashed rgb(0,0,0);
- }
- 
-.patent_table_head
-{
+	border-top: 1px dashed rgb(0, 0, 0);
 	text-align: center;
 }
 
-.patent_number_head
-{
+.award_table_head {
+	text-align: center;
+}
+
+.awards_year_head {
 	width: 160px;
 }
 
-.patent_country_head
-{
+.award_country_head {
 	width: 96px;
 }
 
-.patent_number, .patent_country
-{
+.award_number,
+.award_country {
 	text-align: center;
 }
- 
- 
+
+.back_to_top {
+	text-align: right;
+	margin-top: 10px;
+}
+
+.back_to_top a {
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+
 /*/////////////////////////////////////////////
  // utility descriptor
  ////////////////////////////////////////////*/
