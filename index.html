@@ -5,7 +5,9 @@
     <link rel="icon" type="image/png" href="image/m.png"/>
     <meta name="description" content="Md Mustafizur Rahman's Personal Page."/>
     <meta http-equiv="author" content="Md Mustafizur Rahman"/>
-    <link href="css/main.css" type="text/css" rel="stylesheet"/>
+<!--    <link href="css/main.css" type="text/css" rel="stylesheet"/>-->
+    <link rel="stylesheet" type="text/css" href="css/main.css?v=1.0.0">
+
 </head>
 
 <body>
@@ -226,14 +228,21 @@
                     <!--				<tr><td class="research_misc"><i>arXiv,</i> 2020</td></tr>-->
                 <tr>
                     <td class="project_description">
-                        Given a dataset of motion captures, this system allows physical therapists to learn from diverse
-                        impaired gait patterns without constraints of time or patient availability. Utilizing the
-                        HumanML3D dataset, it combines text2length sampling for predicting motion length and a temporal
-                        variational autoencoder for generating consistent 3D motion sequences. The system provides
-                        immersive, patient-specific motion simulations in mixed reality, enhancing therapeutic training
-                        and strategies.
+                        <p>
+                            We propose a novel system for <strong>physical therapy training</strong> that enhances understanding of <strong>impaired gait patterns</strong> using the <strong>HumanML3D dataset</strong>. Our approach combines a <strong>classification model</strong> for predicting motion length from textual descriptions and a <strong>temporal variational autoencoder</strong> for generating diverse 3D motion sequences. By utilizing <strong>residual vector quantization</strong> and a <strong>Masked Transformer</strong>, the system ensures <strong>precise and consistent motion generation</strong>. This <strong>interactive tool</strong> allows therapists to simulate <strong>patient-specific movements</strong> in <strong>mixed reality environments</strong>, transforming therapeutic training and personalizing rehabilitation strategies.
+                        </p>
+
                         <!--					<p>Here we rebuild a 3D animatable Roger Federer from a video of 2015 US Open Final. Please check out the dynamic versions of the results on the <a href="https://grail.cs.washington.edu/projects/vid2actor/" class="light_blue_link">project page</a>.</p>-->
                     </td>
+                </tr>
+                <tr>
+                    <td class="project_appendix">
+                        <p>
+                            <strong>Development Overview:</strong> In this study, I utilized <strong>Python</strong> and
+                            <strong>C#</strong> to develop the application, leveraging <strong>Unity3D</strong> as my development platform.
+                            I incorporated <strong>FastAPI</strong> for backend services and utilized the <strong>Blender Python API</strong> for the motion retargeting process to map the generated motion onto the target 3D model's skeleton.
+                            The development environment was set up in <strong>PyCharm</strong>, and the application was deployed on the <strong>Meta Quest 3</strong> for an immersive experience.
+                        </p>
                 </tr>
                 <tr>
                     <td class="project_appendix">
@@ -241,8 +250,9 @@
 <!--                        <a href="#" class="project_link">project page</a> |-->
 <!--                        <a href="#" class="project_link">paper</a> |-->
 <!--                        <a href="#" class="project_link">video</a>-->
+                    </td>
                 </tr>
-                </td>
+
                 </tbody>
             </table>
             <div class="back_to_top"><a href="#navigator" class="black_link">back to top</a></div>
@@ -284,6 +294,12 @@
                         offering an innovative solution for medical training and remote surgery.
                         <!--					<p>Here we rebuild a 3D animatable Roger Federer from a video of 2015 US Open Final. Please check out the dynamic versions of the results on the <a href="https://grail.cs.washington.edu/projects/vid2actor/" class="light_blue_link">project page</a>.</p>-->
                     </td>
+                </tr>
+                <tr>
+                    <td class="project_appendix">
+                        <p><strong>Development Overview:</strong> This project leveraged <strong>C#</strong> for application development and <strong>C++</strong> for the communication bridge via <strong>Firebase</strong>.
+                            The <strong>Unity3D</strong> engine was employed for UI and room design, with real-time <strong>video transmission</strong> over <strong>TCP/IP</strong> enabling surgeon monitoring in VR.
+                            <strong>Photon Network</strong> facilitated multi-user collaboration, and the robotic system was controlled using <strong>Arduino Mega2560</strong>, executing commands transmitted as <strong>JSON</strong> for robotic actions.</p>
                 </tr>
                 <tr>
                     <td class="project_appendix">
@@ -346,19 +362,28 @@
                 </tr>
                 <tr>
                     <td class="project_appendix">
-                        <a href="https://drive.google.com/file/d/1GU9YgjXGqyFPv7kpbDkelXkG7q63cEy_/view" target="_blank"
-                           class="project_link">demo video</a> |
-                        <a href="https://github.com/mustafizur-r/arposetrainerapp-live" target="_blank"
-                           class="project_link">code</a>
+                        <p><strong>Development Overview:</strong> <p>This system utilizes <strong>Augmented Reality (AR)</strong> for motor rehabilitation, providing real-time motion analysis and feedback.
+                        <strong>Azure Kinect</strong> captures patient movements, processed in <strong>C#</strong> to create skeletal tracking visualizations transmitted via <strong>UDP/IP</strong> to devices like the <strong>HoloLens</strong>.
+                        Instant feedback on pose accuracy and performance metrics is provided, while a <strong>Laravel REST API</strong> in <strong>PHP</strong> and a <strong>MySQL</strong> database enable score storage and personalized performance data access through a web interface.</p>
+
+
                 </tr>
-                </td>
+                <tr>
+                    <td class="project_appendix">[
+                        <a href="https://drive.google.com/file/d/1GU9YgjXGqyFPv7kpbDkelXkG7q63cEy_/view" target="_blank"
+                           class="project_link">video</a> |
+                        <a href="https://github.com/mustafizur-r/arposetrainerapp-live" target="_blank"
+                           class="project_link">code</a>]
+                    </td>
+                </tr>
+
                 </tbody>
             </table>
             <div class="back_to_top"><a href="#navigator" class="black_link">back to top</a></div>
         </div>
     </div>
     <!--End Project -->
-    <div class="item_block" id="patents">
+    <div class="item_block" id="awards">
         <div class="item_headline">
             <h2>Awards and Achievements</h2>
         </div>
