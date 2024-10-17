@@ -369,11 +369,11 @@ body
 	text-align: right;	
 	float:right;
  }
- 
+
 
 /*/////////////////////////////////////////////
- // award descriptor
- ////////////////////////////////////////////*/
+// award descriptor
+/////////////////////////////////////////////*/
 .award_item > table {
 	width: 768px;
 	padding-left: 16px;
@@ -390,7 +390,12 @@ body
 	padding-top: 8px;
 	padding-bottom: 8px;
 	border-top: 1px dashed rgb(0, 0, 0);
-	text-align: center;
+	text-align: center; /* Default alignment for all cells */
+}
+ /* Targeting the second column */
+.award_item > table > tbody > tr > td:nth-child(3) { /* Targeting the third column */
+	text-align: justify; /* Justify text in the second and third columns */
+	text-align-last: left; /* Align last line to the left for better readability */
 }
 
 .award_table_head {
@@ -407,7 +412,72 @@ body
 
 .award_number,
 .award_country {
+	text-align: center; /* Center alignment for the first and last columns */
+}
+
+.back_to_top {
+	text-align: right;
+	margin-top: 10px;
+}
+
+.back_to_top a {
+	color: #000;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+/*/////////////////////////////////////////////
+// training courses descriptor
+/////////////////////////////////////////////*/
+.training_item > table {
+	width: 768px;
+	padding-left: 16px;
+	border-collapse: collapse;
+	border-bottom: 2px solid rgb(0, 0, 0);
+	margin-bottom: 32px;
+}
+
+.training_item > table > thead {
+	border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.training_item > table > tbody > tr > td {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	border-top: 1px dashed rgb(0, 0, 0);
+	text-align: center; /* Default alignment for all cells */
+}
+
+.training_item > table > tbody > tr > td:nth-child(3) { /* Targeting the third column */
+	text-align: justify; /* Justify text in the third column */
+	text-align-last: left; /* Align last line to the left */
+}
+
+.training_table_head {
 	text-align: center;
+}
+
+.training_year_head {
+	width: 160px;
+}
+
+.training_title_head {
+	width: 250px; /* Adjust width as needed */
+}
+
+.training_description_head {
+	width: 358px; /* Adjust width as needed */
+}
+
+.training_year,
+.training_title,
+.training_description {
+	text-align: center; /* Center alignment for year and title */
+}
+
+.training_description { /* Specifically targeting the description */
+	text-align: justify; /* Justify text in description cells */
 }
 
 .back_to_top {
