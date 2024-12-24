@@ -7,6 +7,26 @@
     <list default="true" id="f98394c7-6429-4586-a4c5-0e4b7ef1fe8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/bradpitt/report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/blur-frame.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/clock-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/flowchart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/harris-corner.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/less-structure.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/motion_cost.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/ransac-homography.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/images/testbed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/videos/bike07_compare.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/videos/bike08_compare.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/videos/climbing08_bad.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/hyperlapse/videos/walk_compare.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/moonriver/poster.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/moonriver/report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/robotics/report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/robotics/teaser.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/robotics/video.mp4" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +85,8 @@
       <workItem from="1728561762599" duration="40710000" />
       <workItem from="1730177550824" duration="3106000" />
       <workItem from="1731546360406" duration="1062000" />
-      <workItem from="1734351290649" duration="146000" />
+      <workItem from="1734351290649" duration="181000" />
+      <workItem from="1734996883654" duration="1748000" />
     </task>
     <servers />
   </component>
