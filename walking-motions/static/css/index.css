@@ -271,3 +271,26 @@ h2.title.is-3 , h3.title.is-4{
   margin: 0 auto 20px; 
 }
 
+.skills_table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.skill_category {
+    width: 25%;
+    font-weight: bold;
+    vertical-align: top;
+    color: #262626;
+}
+
+.skill_description {
+    width: 75%;
+    text-align: justify;
+    color: #333;
+    padding-left: 10px;
+}
+
+.skill_category, .skill_description {
+    padding: 6px 0;
+}
