@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f98394c7-6429-4586-a4c5-0e4b7ef1fe8b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/research-img/MotionGenVideo/MotionVideo1.gif" beforeDir="false" afterPath="$PROJECT_DIR$/image/research-img/MotionGenVideo/MotionVideo1.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/research-img/MotionGenVideo/MotionVideo2.gif" beforeDir="false" afterPath="$PROJECT_DIR$/image/research-img/MotionGenVideo/MotionVideo2.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ja/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ja/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/walking-motions/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/walking-motions/static/css/index.css" afterDir="false" />
-    </list>
+    <list default="true" id="f98394c7-6429-4586-a4c5-0e4b7ef1fe8b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +93,7 @@
       <workItem from="1773042063813" duration="59000" />
       <workItem from="1773805449412" duration="3301000" />
       <workItem from="1780103082166" duration="986000" />
-      <workItem from="1783336833115" duration="3147000" />
+      <workItem from="1783336833115" duration="3340000" />
     </task>
     <servers />
   </component>

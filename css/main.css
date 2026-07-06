@@ -829,6 +829,8 @@ figcaption {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
 }
 
 .pub_list li {
@@ -847,6 +849,10 @@ figcaption {
 	width: calc(100% - 60px);
 	text-align: justify;
 	vertical-align: top;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 }
 .pub_subheading {
 	font-size: 105%;
