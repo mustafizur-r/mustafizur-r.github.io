@@ -825,28 +825,28 @@ figcaption {
 .skill_category, .skill_description {
 	padding: 6px 0;
 }
-.pub_list {
+.paper_list {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.pub_list li {
+.paper_list li {
 	margin-bottom: 12px;
-	display: flex;          /* replaces inline-block hack */
+	display: flex;
 	align-items: flex-start;
 }
 
-.pub_label {
+.paper_label {
 	flex: 0 0 60px;
 	font-weight: bold;
 }
 
-.pub_text {
+.paper_text {
 	flex: 1 1 auto;
 	text-align: justify;
 }
-.pub_subheading {
+.paper_subheading {
 	font-size: 105%;
 	font-weight: bold;
 	color: rgb(197, 53, 56);
@@ -856,7 +856,7 @@ figcaption {
 	padding-bottom: 4px;
 }
 
-.pub_subheading:first-of-type {
+.paper_subheading:first-of-type {
 	margin-top: 0;
 }
 .award_country,
