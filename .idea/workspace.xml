@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f98394c7-6429-4586-a4c5-0e4b7ef1fe8b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/image/research-img/ARTaskSupportTeaser.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/image/research-img/AR Task Project.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ja/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ja/index.html" afterDir="false" />
@@ -33,20 +33,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/mdmustafizur-r/Code/MyPortfolio/mustafizur-r.github.io/image/research-img",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mdmustafizur-r/Code/MyPortfolio/mustafizur-r.github.io/image/research-img&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/image/research-img" />
@@ -56,8 +56,8 @@
       <recent name="$PROJECT_DIR$/ja" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/image/research-img/MotionGenVideo" />
       <recent name="$PROJECT_DIR$/image/research-img" />
+      <recent name="$PROJECT_DIR$/image/research-img/MotionGenVideo" />
       <recent name="$PROJECT_DIR$/files" />
     </key>
   </component>
@@ -99,6 +99,7 @@
       <workItem from="1773805449412" duration="3301000" />
       <workItem from="1780103082166" duration="986000" />
       <workItem from="1783336833115" duration="12556000" />
+      <workItem from="1784167558587" duration="1733000" />
     </task>
     <servers />
   </component>
