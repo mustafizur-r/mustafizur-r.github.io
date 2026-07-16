@@ -859,3 +859,8 @@ figcaption {
 .pub_subheading:first-of-type {
 	margin-top: 0;
 }
+.award_country,
+.award_country_head {
+	white-space: nowrap;
+	width: auto;      /* let it size to content instead of a fixed narrow width */
+}
