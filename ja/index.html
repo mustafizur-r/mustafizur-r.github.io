@@ -190,6 +190,33 @@
             <tr>
                 <td class="work_description">
                     <h3>
+                        <a href="https://www.kyoto-u.ac.jp/en" class="light_blue_link" target="_blank">京都大学</a>
+                        | Visiting Student
+                    </h3>
+
+                    <div class="work_meta">
+                        2024年3月-現在 | 54 Kawahara-cho, Shogoin, Sakyo-ku, Kyoto 606-8507, Japan
+                    </div>
+
+                    <ul class="work_list">
+                        <li>医療機器開発の臨床研究センターの研究者と共同研究。</li>
+                        <li class="indent">
+                            指導・共同研究:
+                            <a href="https://scholar.google.com/citations?user=Oz9_9Z8AAAAJ&hl=en" class="light_blue_link" target="_blank">山本 豪志郎 教授</a>,
+                            <a href="https://scholar.google.co.jp/citations?user=jhNjdXcAAAAJ&hl=ja" class="light_blue_link" target="_blank">劉 暢 教授</a>,
+                            <a href="https://researchmap.jp/hiro-ueshima" class="light_blue_link" target="_blank">上島 宏明 先生</a>
+                        </li>
+                        <li>臨床テキストからの歩行モーション生成・可視化に関する研究。</li>
+                    </ul>
+                </td>
+
+                <td class="work_image" id="kyoto_university_img">
+                    <img src="../image/kyoto_uni.png" alt="Kyoto University" width="140" height="49">
+                </td>
+            </tr>
+            <tr>
+                <td class="work_description">
+                    <h3>
                         <a href="https://www.unitn.it/en" class="light_blue_link" target="_blank">University of Trento</a>
                         | Visiting Researcher
                     </h3>
@@ -225,34 +252,6 @@
 
                 <td class="work_image" id="University of Trento_img">
                     <img src="../image/unitrento.png" alt="University of Trento" width="140" height="49">
-                </td>
-            </tr>
-
-            <tr>
-                <td class="work_description">
-                    <h3>
-                        <a href="https://www.kyoto-u.ac.jp/en" class="light_blue_link" target="_blank">京都大学</a>
-                        | Visiting Student
-                    </h3>
-
-                    <div class="work_meta">
-                        2024年3月-現在 | 54 Kawahara-cho, Shogoin, Sakyo-ku, Kyoto 606-8507, Japan
-                    </div>
-
-                    <ul class="work_list">
-                        <li>医療機器開発の臨床研究センターの研究者と共同研究。</li>
-                        <li class="indent">
-                            指導・共同研究:
-                            <a href="https://scholar.google.com/citations?user=Oz9_9Z8AAAAJ&hl=en" class="light_blue_link" target="_blank">山本 豪志郎 教授</a>,
-                            <a href="https://scholar.google.co.jp/citations?user=jhNjdXcAAAAJ&hl=ja" class="light_blue_link" target="_blank">劉 暢 教授</a>,
-                            <a href="https://researchmap.jp/hiro-ueshima" class="light_blue_link" target="_blank">上島 宏明 先生</a>
-                        </li>
-                        <li>臨床テキストからの歩行モーション生成・可視化に関する研究。</li>
-                    </ul>
-                </td>
-
-                <td class="work_image" id="kyoto_university_img">
-                    <img src="../image/kyoto_uni.png" alt="Kyoto University" width="140" height="49">
                 </td>
             </tr>
 
@@ -535,6 +534,65 @@
             </table>
             <div class="back_to_top"><a href="#navigator" class="black_link">back to top</a></div>
         </div>
+
+        <!-- Research 5: AR LLM Task Support -->
+        <div class="project_item">
+            <table>
+                <tbody>
+                <!-- TODO: プロジェクト画像パスを追加してください -->
+
+                <tr>
+                    <td class="project_image">
+                        <img src="../image/research-img/ARTaskSupportTeaser.jpg" class="align-center"
+                             alt="AR Task Support System Using LLMs" width="800" height="236"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="project_title">
+                        <a href="#" class="project_title_link">
+                            大規模言語モデルを活用した文脈適応・熟練度対応型ARタスク支援システム
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="project_author">
+                        共同研究 | 指導教員: <a href="https://scholar.google.com/citations?user=zlyaC60AAAAJ&hl=en" class="light_blue_link" target="_blank">加藤 博一 教授</a> |
+                        役割: 修士研究プロジェクトの技術協力・メンター
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="project_description">
+                        <p>
+                            本共同研究では、<strong>大規模言語モデル（LLM）</strong>と<strong>検索拡張推論</strong>を活用し、
+                            複雑な手順作業に対して文脈に応じたガイダンスを提供するARシステムを開発しています。
+                            ユーザーの行動を観察し、マニュアルから検証済みの手順を検索・提示することで、
+                            <strong>熟練度に応じたAR支援</strong>を説明可能性とリアルタイムフィードバック付きで実現します。
+                            科学実験、医療機器のセットアップ、機械組立作業など、幅広い応用が想定されます。
+                        </p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="project_appendix">
+                        <p>
+                            <strong>開発概要:</strong>
+                            Python と Unity（C#）により実装し、クロスプラットフォームなAR/MRインタラクションのために
+                            OpenXR を採用しました。バックエンドには FastAPI を使用し、GPTベースの大規模言語モデルと
+                            検索拡張推論を統合して文脈対応型のタスクガイダンスを実現しています。
+                            ポーズトラッキングにより、ユーザーの行動を観察し、HMD上でリアルタイムに熟練度対応の
+                            フィードバックを提供します。
+                        </p>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="back_to_top"><a href="#navigator" class="black_link">back to top</a></div>
+        </div>
+        <!-- end AR LLM Task Support -->
 
         <!-- Research 2 -->
         <div class="project_item">
@@ -888,7 +946,6 @@
 
 
     <!-- Awards -->
-    <!-- Awards -->
     <div class="item_block" id="awards">
         <div class="item_headline">
             <h2>受賞・実績</h2>
@@ -942,13 +999,13 @@
                     <tr>
                         <td class="award_number">2019年</td>
                         <td class="award_number">IEEE RAS ハッカソン 準優勝</td>
-                        <td class="award_title">BUET Winter School IEEE RAS ハッカソン</td>
+                        <td class="award_title">BUET Winter School IEEE RAS ハッカソン &mdash; 「ドローンによる浸水地域マッピング」</td>
                         <td class="award_country">バングラデシュ</td>
                     </tr>
                     <tr>
                         <td class="award_number">2019年</td>
                         <td class="award_number">ロボティクス展示・競技会 準優勝</td>
-                        <td class="award_number">LICT-JOBフェア プロジェクト展示</td>
+                        <td class="award_title">LICT-JOBフェア プロジェクト展示</td>
                         <td class="award_country">バングラデシュ</td>
                     </tr>
                     </tbody>
@@ -961,7 +1018,7 @@
     </div>
     <!-- End Awards -->
 
-    <!-- Training Courses -->
+
     <!-- Training Courses -->
     <div class="item_block" id="training_courses">
         <div class="item_headline">
@@ -979,6 +1036,15 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <tr>
+                        <td class="training_year">2026年2月</td>
+                        <td class="training_title">AI Engineer Core Track: LLM Engineering, RAG, QLoRA & AI Agents</td>
+                        <td class="training_description">
+                            大規模言語モデル（LLM）エンジニアリングの基礎、Retrieval-Augmented Generation（RAG）パイプライン、
+                            QLoRAによる軽量ファインチューニング、自律型AIエージェントの構築を学習（Udemy）。
+                            [<a href="https://www.udemy.com/certificate/UC-3669de15-e4f0-4149-9ea4-eb49a369f5d9/" target="_blank" class="training_link">証明書を見る</a>]
+                        </td>
+                    </tr>
                     <tr>
                         <td class="training_year">2019年5月-6月</td>
                         <td class="training_title">AR・VR・MR技術研修</td>
@@ -999,6 +1065,7 @@
                         <td class="training_title">モバイルゲーム・アプリ開発研修</td>
                         <td class="training_description">
                             モバイルゲームの設計・開発・リリースまでのプロセスを学習。
+                            [<a href="https://drive.google.com/file/d/1AY46OgCrBG35vaSyF2g0_Ka050UR7LMH/view?usp=sharing" target="_blank" class="training_link">証明書を見る</a>]
                         </td>
                     </tr>
                     </tbody>
@@ -1010,7 +1077,7 @@
         </div>
     </div>
     <!-- End Training Courses -->
-    <!-- Technical Skills -->
+
     <!-- Technical Skills -->
     <div class="item_block" id="technical_skills">
         <div class="item_headline">
@@ -1023,7 +1090,7 @@
                 <tr>
                     <td class="skill_category"><strong>専門分野</strong></td>
                     <td class="skill_description">
-                        XR（AR/VR/MR）、HCI、人工知能、機械学習、深層学習、生成AI
+                        XR（AR/VR/MR）、HCI、人工知能、大規模言語モデル（LLM）、生成AI
                     </td>
                 </tr>
                 <tr>
@@ -1042,6 +1109,13 @@
                     <td class="skill_category"><strong>機械学習・深層学習</strong></td>
                     <td class="skill_description">
                         PyTorch、TensorFlow、scikit-learn、CNN・RNN・Transformer、学習・評価・最適化
+                    </td>
+                </tr>
+                <tr>
+                    <td class="skill_category"><strong>LLM・生成AI</strong></td>
+                    <td class="skill_description">
+                        プロンプトエンジニアリング、Retrieval-Augmented Generation（RAG）、軽量ファインチューニング（LoRA/PEFT）、
+                        推論パイプライン
                     </td>
                 </tr>
                 <tr>
